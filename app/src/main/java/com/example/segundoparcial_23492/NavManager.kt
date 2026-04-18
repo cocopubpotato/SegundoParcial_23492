@@ -23,8 +23,8 @@ fun NavManager() {
         composable("ListaDragones"){
             ListaDragones(navegante = navController,DragQ,DragSel)
         }
-        composable("ListaDragones"){
-            ListaDragones(navegante = navController,DragSel)
+        composable("UnDragon"){
+            UnDragon(navegante = navController,DragSel)
         }
     }
 
