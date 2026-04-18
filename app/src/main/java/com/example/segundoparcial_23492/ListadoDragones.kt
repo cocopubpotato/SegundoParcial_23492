@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -33,9 +34,8 @@ import com.example.segundoparcial_23492.info.Dragmodels
 
 
 //IMAGEN B
-@Preview(showBackground = true)
 @Composable
-fun ListaDragones(navegante: NavHostController, dragones: List<Drag>, seleccionada: MutableState<Int> ){
+fun ListaDragones(navegante: NavHostController, dragones: List<Dragmodels>, seleccionada: MutableState<Int> ){
 
     Column(Modifier.fillMaxSize().padding(10.dp), verticalArrangement = Arrangement.SpaceBetween, horizontalAlignment = Alignment.CenterHorizontally){
     Row() {
@@ -58,14 +58,14 @@ fun ListaDragones(navegante: NavHostController, dragones: List<Drag>, selecciona
                     Column(modifier = Modifier.fillMaxWidth()) {
                         Row {
                             Image(
-                                painter = painterResource(drag.Imagen01),
+                                painter = painterResource(drag.Imagen_01),
                                 contentDescription = "imagen de dragon",
                                 contentScale = ContentScale.FillBounds,
                                 modifier = Modifier.size(80.dp).align(Alignment.CenterVertically)
                             )
 
                             Image(
-                                painter = painterResource(drag.Clase),
+                                painter = painterResource(drag.ClaseImg),
                                 contentDescription = "imagen de dragon",
                                 contentScale = ContentScale.FillBounds,
                                 modifier = Modifier.height(42.dp).width(64.dp)
