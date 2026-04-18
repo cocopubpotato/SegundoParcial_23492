@@ -13,6 +13,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,12 +23,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.segundoparcial_23492.info.Dragmodels
 
 //IMAGEN C
-@Preview(showBackground = true)
 @Composable
-fun UnDragon(drag: Dragmodels,selected:()-> Unit) {
+fun UnDragon(navegante: NavHostController, seleccionada: MutableState<Int>) {
     Card(
         modifier = Modifier.height(250.dp).fillMaxWidth().padding(8.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
@@ -35,14 +36,14 @@ fun UnDragon(drag: Dragmodels,selected:()-> Unit) {
         Column(modifier = Modifier.fillMaxWidth()) {
             Row {
                 Image(
-                    painter = painterResource(drag.image01),
+                    painter = painterResource(Dragmodels.Imagen_02),
                     contentDescription = "imagen de dragon",
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier.size(80.dp).align(Alignment.CenterVertically)
                 )
 
                 Image(
-                    painter = painterResource(drag.clase),
+                    painter = painterResource(drag.Cl),
                     contentDescription = "imagen de dragon",
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier.height(42.dp).width(64.dp).align(Alignment.CenterVertically)

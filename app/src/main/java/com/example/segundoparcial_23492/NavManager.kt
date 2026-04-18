@@ -7,12 +7,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.segundoparcial_23492.info.Drag
-import com.example.segundoparcial_23492.info.Dragmodels
 
 @Composable
 fun NavManager() {
     val navController = rememberNavController()
-    val DragQ = remember { Drag.getDragon() }
+    val DragQ = remember { Drag().getDragon() }
     val DragSel = remember { mutableIntStateOf(0) }
 
 
