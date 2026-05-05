@@ -1,5 +1,8 @@
 package com.example.segundoparcial_23492.info
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Dragmodels(
     val num: Int,
     val Nombre: String,

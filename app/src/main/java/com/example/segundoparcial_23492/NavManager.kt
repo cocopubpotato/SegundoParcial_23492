@@ -1,31 +1,33 @@
 package com.example.segundoparcial_23492
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.segundoparcial_23492.info.Drag
+import androidx.navigation.toRoute
+import com.example.segundoparcial_23492.info.Dragmodels
+import kotlinx.serialization.Serializable
 
+@Serializable
+object Inicio
+@Serializable
+object Lista
+@Preview(showBackground = true)
 @Composable
 fun NavManager() {
     val navController = rememberNavController()
-    val DragQ = remember { Drag().getDragon() }
-    val DragSel = remember { mutableIntStateOf(0) }
-
-
-
-    NavHost(navController, startDestination = "Inicio"){
-        composable("Inicio"){
-            Inicio(navegante = navController)
+    NavHost(navController, startDestination = Inicio){
+        composable<Inicio>{
+            Inicioview(navController)
         }
-        composable("ListaDragones"){
-            ListaDragones(navegante = navController,DragQ,DragSel)
+        composable<Lista>{
+            ListaDragones(navController)
         }
-        composable("UnDragon"){
-            UnDragon(navegante = navController,DragSel)
+        composable<Dragmodels>{  //va la lista de nuestros datos
+            val dragon: Dragmodels= it.toRoute<Dragmodels>()
+            UnDragon(navegante = navController,dragon)
         }
     }
-
 }
+
