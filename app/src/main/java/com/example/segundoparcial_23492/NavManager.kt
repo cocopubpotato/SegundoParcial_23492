@@ -12,7 +12,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 object Inicio
 @Serializable
-object Lista
+object ListaDragones
+
 @Preview(showBackground = true)
 @Composable
 fun NavManager() {
@@ -21,7 +22,7 @@ fun NavManager() {
         composable<Inicio>{
             Inicioview(navController)
         }
-        composable<Lista>{
+        composable<ListaDragones>{
             ListaDragones(navController)
         }
         composable<Dragmodels>{  //va la lista de nuestros datos
