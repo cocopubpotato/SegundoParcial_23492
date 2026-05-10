@@ -1,6 +1,5 @@
 package com.example.segundoparcial_23492.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

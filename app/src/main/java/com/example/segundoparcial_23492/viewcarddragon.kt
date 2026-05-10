@@ -60,7 +60,7 @@ fun CardDragon(navegante: NavHostController, dragon: Dragmodels){  //llamamos al
                 )
                     Text(dragon.Nombre, fontSize = 20.sp, textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .align(Alignment.BottomCenter)  //este tipo de algn solo sirve dento de una box
+                            .align(Alignment.BottomCenter)  //este tipo de align solo sirve dento de una box
                             .fillMaxWidth()
                             .background(Color.Black),
                         color = Color.White)

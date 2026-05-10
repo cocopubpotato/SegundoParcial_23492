@@ -3,7 +3,7 @@ package com.example.segundoparcial_23492.info
 import kotlinx.serialization.Serializable
 
 
-//serial porque se usa en multo¡iples vistas y asi solo se seleccionan los datos en lugar de tener que mandar todo
+//serial porque se usa en multiples vistas y asi solo se seleccionan los datos en lugar de tener que mandarlo
 @Serializable
 data class Dragmodels(
     val num: Int,
