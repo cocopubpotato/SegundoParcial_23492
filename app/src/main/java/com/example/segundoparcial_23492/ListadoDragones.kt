@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,24 +22,31 @@ import com.example.segundoparcial_23492.info.Drag
 
 //IMAGEN B
 
-@SuppressLint("ViewModelConstructorInComposable")
+@SuppressLint("ViewModelConstructorInComposable")  //para que siga siendo composable junto con el serial
 @Composable
 fun ListaDragones(navegante: NavHostController){
-    val vm = Drag()
-    Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceEvenly) {
-        Box(Modifier.fillMaxWidth().size(45.dp).padding(5.dp).align(Alignment.CenterHorizontally)) {
-            Text("Elije un Dragón")
-            Button({navegante.popBackStack()},Modifier.align(Alignment.TopEnd)) {//regresar a inicio
+    val vm = Drag() //traemos el modelo donde estan registrados los datos  CLASS viewmodel
+
+    Column(Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceEvenly) {
+        Box(Modifier                        //para que la barra superior se mantenga estatica
+            .fillMaxWidth()
+            .size(45.dp)
+            .padding(5.dp).align(Alignment.CenterHorizontally)) {
+
+            Text("Elije un Dragón",Modifier.padding(start = 15.dp))
+            Button(
+                onClick = {navegante.popBackStack()}      //regresar a inicio
+                ,Modifier.align(Alignment.TopEnd)) {
                 Text("Cerrar Libro") }
         }
-        LazyColumn( Modifier.fillMaxSize().padding(10.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),//cuanto espacio hay entre los elementos
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            item {
 
-            }
-            items(vm.getDragon()){
-                CardDragon(navegante = navegante, it) }
+        LazyColumn( Modifier.fillMaxSize().padding(10.dp),  //cuanto espacio con las paredes y la barra de arriba
+            verticalArrangement = Arrangement.spacedBy(8.dp),   //cuanto espacio hay entre los elementos
+            horizontalAlignment = Alignment.CenterHorizontally) {
+            items(vm.getDragon()){  //se muestre card por cada dragon
+                CardDragon(  //la vista con los settings del listado individual
+                    navegante = navegante, it) } //se envie el dragon seleccionado
         }
     }
 }

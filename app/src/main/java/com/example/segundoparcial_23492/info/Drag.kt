@@ -6,9 +6,16 @@ import com.example.segundoparcial_23492.R
 class Drag : ViewModel(){
     fun getDragon(): List<Dragmodels>
     {
+        //en este caso es una lista fija y no mutable por lo tanto se ingresan como variables cada dragon,
+        // el nombre de la variable no afecta simplemente pos que no se repita
+
+        //si nos vuelve a pasar datos asi recomiendo usen ctrl+f por si no se les habi ocurido
+
         val dragona= Dragmodels(num = 1, Nombre = "Trueno Tambor",Apodo = "Thornado",
-            Entrenable = "Sí", Clase = "Marejada",
-            Descripcion = "Este solitario dragon habita en cuevas y estanques marinos, si se le molesta puede producir un golpe de sonido que mata hombres a corta distancia",
+            Entrenable = "Sí",
+            Clase = "Marejada",
+            Descripcion = "Este solitario dragon habita en cuevas y estanques marinos, " +
+                    "si se le molesta puede producir un golpe de sonido que mata hombres a corta distancia",
             Recomendacion = "Tirar  a Matar",
             "En extremo peligroso",
             Imagen_01 = R.drawable.trueno01,
@@ -59,20 +66,20 @@ class Drag : ViewModel(){
             R.drawable.piedra)
         val dragonf= Dragmodels(6,
             Nombre= "Furia Nocturna",
-            Apodo= "Chimuelo//Dientes",
+            Apodo= "Chimuelo // Dientes",
             Entrenable= "Sí",
             Clase= "Embestida",
             Descripcion= "Rapidez= Desconocida" +
-                    "        Tamaño= Desconocido" +
-                    "        La cría maligna del relámpago y la muerte misma. Nunca enfrentar a este dragon.",
-            Recomendacion= "Tu única salida= Esconderte e implorar que no te encuentre",
+                    "        \nTamaño= Desconocido" +
+                    "        \nLa cría maligna del relámpago y la muerte misma. Nunca enfrentar a este dragon.",
+            Recomendacion= "Tu única salida: Esconderte e implorar que no te encuentre",
             "S+++",
             Imagen_01= R.drawable.furia01,
             Imagen_02= R.drawable.furia02,
             R.drawable.embestida
         )
 
-        val dmodels =listOf<Dragmodels>(dragona,dragonb,dragonc,dragond,dragone,dragonf)
+        val dmodels =listOf<Dragmodels>(dragona,dragonb,dragonc,dragond,dragone,dragonf) //designamos la variable en la que se envian los datos
 
         return dmodels
 }

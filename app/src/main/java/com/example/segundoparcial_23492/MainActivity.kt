@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SegundoParcial_23492Theme {
-                NavManager()
+                NavManager()  //iniciamosdesde el navmanager
             }
         }
     }

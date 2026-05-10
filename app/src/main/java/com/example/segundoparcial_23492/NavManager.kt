@@ -9,6 +9,10 @@ import androidx.navigation.toRoute
 import com.example.segundoparcial_23492.info.Dragmodels
 import kotlinx.serialization.Serializable
 
+
+
+// se usa serializable porue se tienen que mostrar multiples datos que vienen de la misma fuente en diferentes vistas
+
 @Serializable
 object Inicio
 @Serializable
@@ -19,14 +23,14 @@ object ListaDragones
 fun NavManager() {
     val navController = rememberNavController()
     NavHost(navController, startDestination = Inicio){
-        composable<Inicio>{
+        composable<Inicio>{  //son tipo ruta los composable toncesse ponen igual a como establecimos los objetos
             Inicioview(navController)
         }
         composable<ListaDragones>{
             ListaDragones(navController)
         }
         composable<Dragmodels>{  //va la lista de nuestros datos
-            val dragon: Dragmodels= it.toRoute<Dragmodels>()
+            val dragon: Dragmodels= it.toRoute<Dragmodels>()    //se envia que dragon fue eleccionado
             UnDragon(navegante = navController,dragon)
         }
     }

@@ -31,11 +31,14 @@ import com.example.segundoparcial_23492.info.Dragmodels
 @Composable
 fun UnDragon(navegante: NavHostController,dragon: Dragmodels) {
 
-    var result by remember{mutableStateOf("")}
+    var result by remember{mutableStateOf("")} //para el regreso de los botones, no quise usar diferentes variables en ellos
 
     Column(Modifier
         .fillMaxSize()
-        .padding(12.dp)) {
+        .padding(12.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally  //sin esto el texto no se alinea al centro btw
+        ){
     //imagen dragon mediana
          Image(
              painter = painterResource(dragon.Imagen_02),
@@ -49,12 +52,11 @@ fun UnDragon(navegante: NavHostController,dragon: Dragmodels) {
     //nombre
         Text(text = dragon.Nombre, fontSize = 18.sp, textAlign = TextAlign.Center)
     //clase
-        Row(Modifier.fillMaxWidth()) {
+        Row(Modifier.fillMaxWidth()) {  //para que esten en la misma fila
             Text(text = "Clase: ${dragon.Clase} ", fontWeight = FontWeight.Bold)
             Image(
                 painter = painterResource(dragon.ClaseImg),
                 contentDescription = "imagen de la clase",
-
                 modifier = Modifier
                     .size(20.dp)
                     .align(Alignment.CenterVertically) ,
@@ -63,9 +65,9 @@ fun UnDragon(navegante: NavHostController,dragon: Dragmodels) {
         }
     //stats
          Column(Modifier.fillMaxWidth()) {
-             Text(text = dragon.Descripcion)
+             Text(text = dragon.Descripcion)   //Descripcion del dragon
              Text(text = "\nNivel de Peligro: ${dragon.NiveldePeligro}", fontWeight = FontWeight.Bold)
-             Row(Modifier.fillMaxWidth()) {
+             Row(Modifier.fillMaxWidth()) {  //entrenabilidad del dragon
                  Text(text = "¿Se puede entrenar? ")
                  Text(text = dragon.Entrenable, fontWeight = FontWeight.Bold)}
             Text(dragon.Recomendacion)
@@ -74,26 +76,33 @@ fun UnDragon(navegante: NavHostController,dragon: Dragmodels) {
             Text("¿Qué Haras?", fontSize = 16.sp,fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
              Row(Modifier.fillMaxWidth(),
                  horizontalArrangement = Arrangement.SpaceEvenly) {
+
+                 //da igual como escribas los if namas que asi lo sugiere el android studio
+
+                 //modelo es serial podemos comparar variables directamente
                  Button(onClick = {
                      if (dragon.Nombre== "Furia Nocturna"){
-                         result= "A este vikingo le decian 'el macho',porque murio de la forma mas macha posible"
+                         result = "A este vikingo le decian 'el macho',porque murio de la forma mas macha posible"
                      }else {
-                        result= "¡Ehorabuena! Derrotaste al dragon ${dragon.Nombre} pero perdiste una pierna"
-                     } }) { Text("Luchar") }
+                         result = "¡Ehorabuena! Derrotaste al dragon ${dragon.Nombre} pero perdiste una pierna"
+                     }
+                 }) { Text("Luchar") }
+
+
                  Button(onClick = {
-                     if (dragon.Entrenable=="Sí"){
-                        result=  "Felicidades, Entenaste a tu dragon y lo llamaste ${dragon.Apodo}"
+                     result = if (dragon.Entrenable=="Sí"){
+                         "Felicidades, Entrenaste a tu dragon y lo llamaste ${dragon.Apodo}"
                      }else{
-                         result= "No pudiste entrenar al dragon y caiste en batalla"
-                     } }) { Text("Entrenar") }
+                         "No pudiste entrenar al dragon y caiste en batalla"
+                     }
+                 }) { Text("Entrenar") }
+
                  Button(onClick = { navegante.popBackStack() }) {Text("Huir") }
 
              }
-             Text(result)
+             Text(result)  //se mostrara unicamente cuando se halla visto uno de los botones
 
          }
-
-
     }
 }
 

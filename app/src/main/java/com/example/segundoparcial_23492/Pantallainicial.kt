@@ -1,7 +1,6 @@
 package com.example.segundoparcial_23492
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,18 +22,17 @@ import androidx.navigation.NavHostController
 //IMAGEN A
 @Composable
 fun Inicioview(navegante: NavHostController){
-    Column(Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.End
-       // , verticalArrangement = Arrangement.SpaceAround
-        ) {
-        Box(){
+        Box(Modifier.fillMaxSize()){  // en caja las cosas se muestran en capas, el ultimo sera el que ste hasta enfrente
             Image(painter = painterResource(R.drawable.libro),
-                modifier = Modifier.fillMaxSize(), contentDescription = "libro",
+                modifier = Modifier.fillMaxSize(),
+                contentDescription = "libro",
                 contentScale = ContentScale.FillBounds)
-            OutlinedButton(onClick = {navegante.navigate(ListaDragones)}, Modifier.align(
-                Alignment.BottomCenter).padding(bottom = 8.dp)) {  //lista
+            OutlinedButton(
+                onClick = {navegante.navigate(ListaDragones)},
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 8.dp)) {  //lista
                 Text("Abrir",fontSize = 14.sp , textAlign = TextAlign.Center, color =Color.White ) }
 
         }
     }
-}
